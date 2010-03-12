@@ -1,0 +1,111 @@
+.wrapper{
+	width:850px;
+	margin:auto;
+}
+
+.mbTabset .handler{padding-right:5px; position:relative;margin-left:-5px}
+.mbTabset{white-space:nowrap; display:block;margin-left:20px;margin-right:20px;margin-bottom:-1px; float:left; position:relative}
+.mbTabset .mbTab {display:inline-block; cursor:pointer; min-width:100px}
+.mbTabset .mbTab.disabled {cursor:default}
+.mbTabset.right {float:right}
+.mbTabset .mbTab i{width:25px;position:relative;margin-left:-7px; padding-right:5px; margin-right:8px; cursor:move}
+.mbTabset .floatEl{float:left;}
+.mbTabset a.mbTab {
+	background-color:transparent;
+	background-image: url( '../images/default/tab_right.png' );
+	background-repeat:no-repeat ;
+	background-position:top right;
+	color: #666;
+	display:block; /*opera*/
+	display:inline-block; /*ie*/
+	font: normal 13px arial, sans-serif;
+	height: 28px;
+	margin-right: 0;
+	padding-right: 12px;
+	text-decoration: none;
+}
+
+.mbTabset a.mbTab span {
+	background-color:transparent;
+	background-image: url( '../images/default/tab.png' );
+	background-repeat:no-repeat ;
+	display: block;
+	line-height: 21px;
+	padding: 3px 0 4px 10px;
+}
+
+.mbTabset a.mbTab span.sortable {
+	background-color:transparent;
+	background-image: url( '../images/default/tab_grep.png' );
+	background-repeat:no-repeat ;
+	display: block;
+	line-height: 21px;
+	padding: 3px 0 4px 10px;
+}
+
+.mbTabset a.mbTab span img{
+	margin-left:-5px;
+	margin-top:-2px;
+	padding-right:5px;
+}
+
+/*HOVER*/
+.mbTabset a.mbTab:hover {
+	background-image: url( '../images/default/tab_right_hover.png' );
+	color: #000;
+	outline: none;
+}
+
+.mbTabset a.mbTab:hover span {
+	background-image:url( '../images/default/tab_hover.png');
+}
+.mbTabset a.mbTab:hover span.sortable {
+	background-image:url( '../images/default/tab_hover_grep.png');
+}
+
+/*SELECTED*/
+.mbTabset a.mbTab.sel {
+	background-image: url( '../images/default/tab_right_sel.png' );
+	color: #000;
+	outline: none;
+}
+
+.mbTabset a.mbTab.sel span {
+	background-image:url( '../images/default/tab_sel.png');
+}
+.mbTabset a.mbTab.sel span.sortable {
+	background-image:url( '../images/default/tab_sel_grep.png');
+}
+
+/*DISABLED*/
+.mbTabset a.mbTab.disabled {
+	background-image: url( '../images/default/tab_right.png' );
+	color: #999;
+	outline: none;
+}
+
+.mbTabset a.mbTab.disabled span {
+	background-image:url( '../images/default/tab.png');
+}
+.mbTabset a.mbTab.disabled span.sortable {
+	background-image:url( '../images/default/tab_grep.png');
+}
+
+/*CONTAINER*/
+
+.mbTabsetContainer{
+	padding-top:10px;
+	width:100%;
+	background:#fff;
+	font-size:13px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	min-height:350px;
+	border:1px solid gray;
+	clear:both;
+}
+
+.tabContent{
+	padding:10px;
+}

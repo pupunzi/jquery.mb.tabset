@@ -1,0 +1,4 @@
+jquery.mb.tabset
+
+1.8Êminor bugfix:
+  Now the Ajax content is call just if the tab is the one visible or if you click on it.
