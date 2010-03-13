@@ -1,7 +1,4 @@
-.wrapper{
-	width:850px;
-	margin:auto;
-}
+
 
 .mbTabset .handler{padding-right:5px; position:relative;margin-left:-5px}
 .mbTabset{white-space:nowrap; display:block;margin-left:20px;margin-right:20px;margin-bottom:-1px; float:left; position:relative}

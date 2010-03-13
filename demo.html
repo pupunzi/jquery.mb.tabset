@@ -13,90 +13,135 @@
 
 <html>
 <head>
-	<title>mbTabset (sortable)</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>mbTabset (sortable)</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="inc/ui.core.min.js"></script>
-	<script type="text/javascript" src="inc/ui.sortable.min.js"></script>
-	<script type="text/javascript" src="inc/jquery.metadata.js"></script>
-	<script type="text/javascript" src="inc/mbTabset.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="inc/ui.core.min.js"></script>
+  <script type="text/javascript" src="inc/ui.sortable.min.js"></script>
+  <script type="text/javascript" src="inc/jquery.metadata.js"></script>
+  <script type="text/javascript" src="inc/mbTabset.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/mbTabset.css" title="style"  media="screen"/>
-	<script type="text/javascript">
-		$(function(){
-			$("#tabset1").buildMbTabset({
-				stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
-				sortable:true
-			});
-			$("#tabset2").buildMbTabset({
-				stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
-				sortable:false,
-				position:"left"
-			});
-		});
-    var ajaxUrl="content_2.html";    
+  <link rel="stylesheet" type="text/css" href="css/mbTabset.css" title="style"  media="screen"/>
+  <script type="text/javascript">
+    $(function(){
+      $("#tabset1").buildMbTabset({
+        stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
+        sortable:true
+      });
+      $("#tabset2").buildMbTabset({
+        stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
+        sortable:false,
+        position:"left"
+      });
+    });
+    var ajaxUrl="content_2.html";
     var ajaxD="pippo=1&pluto=2";
 
-	</script>
+  </script>
+  <script type="text/javascript">
+    $(function(){
+      if (self.location.href == top.location.href){
+        $("body").css({font:"normal 13px/16px 'trebuchet MS', verdana, sans-serif"});
+        var logo=$("<a href='http://pupunzi.com'><img id='logo' border='0' src='http://pupunzi.com/images/logo.png' alt='mb.ideas.repository' style='display:none;'></a>");
+        $("body").prepend(logo);
+        $("#logo").fadeIn();
+      }
+    });
+
+  </script>
+  <style type="text/css">
+
+    .wrapper{
+      font-family:Arial, Helvetica, sans-serif;
+      margin-top:20px;
+      margin-left:50px;
+      margin-right:50px;
+    }
+
+    .wrapper h1{
+      font:26px/26px Arial, Helvetica, sans-serif;
+    }
+    button{
+      padding:4px;
+      display:inline-block;
+      cursor:pointer;
+      font:12px/14px Arial, Helvetica, sans-serif;
+      color:#666;
+      border:1px solid #999;
+      background-color:#eee;
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+      -moz-box-shadow:#999 2px 0px 3px;
+      -webkit-box-shadow:#999 2px 0px 3px;
+      margin-bottom:4px;
+    }
+    button:hover{
+      color:#aaa;
+      background-color:#000;
+    }
+    :focus {
+      outline: 0;
+    }
+  </style>
 </head>
 <body>
-<div style="background:#ccc ; padding:10px"><span
-        style="color: #ffffff; font-size: 30px; font-family: Courier New, Courier, mono; "> mbTabset</span></div>
-<p style="background:white;"><input type="checkbox" value="alert seq." id="array"/> alert tabs sequence</p>
-<p style="background:white;"><input type="checkbox" id="setContent" onclick="if ($(this).is(':checked')) $('#b').mb_changeContent('content_3.html','a=1&b=2'); else $('#b').mb_changeContent('content_2.html','pippo=1&pluto=2');$('#b').mb_drawAjaxContent();"/> change contet of tab 2</p>
-<p style="background:white;cursor:pointer" onclick="$('#tabset1').addMbTab({title:'addedTab', ajaxContent:'content_3.html'})">add a tab</p>
-<br/><br/>
 <div class="wrapper">
-	<div class="tabset" id="tabset1"><a id="a" class="tab {content:'cont_1'}">tab 1</a><a id="b" class="tab sel {content:'cont_2', ajaxContent:ajaxUrl,ajaxData:ajaxD}">tab 2 con contenuto via ajax</a><a id="c" class="tab disabled block {content:'cont_3'}">tab 3</a><a id="d" class="tab {content:'cont_4'}" >tab 4</a></div>
+  <h1>mb.tabset.demo</h1>
+  <p style="background:white;"><input type="checkbox" value="alert seq." id="array"/> alert tabs sequence</p>
+  <p style="background:white;"><input type="checkbox" id="setContent" onclick="if ($(this).is(':checked')) $('#b').mb_changeContent('content_3.html','a=1&b=2'); else $('#b').mb_changeContent('content_2.html','pippo=1&pluto=2');$('#b').mb_drawAjaxContent();"/> change contet of tab 2</p>
+  <button style="background:white;cursor:pointer" onclick="$('#tabset1').addMbTab({title:'addedTab', ajaxContent:'content_3.html'})">add a tab</button>
+  <br/><br/>
+  <div class="">
+    <div class="tabset" id="tabset1"><a id="a" class="tab {content:'cont_1'}">tab 1</a><a id="b" class="tab sel {content:'cont_2', ajaxContent:ajaxUrl,ajaxData:ajaxD}">tab 2 con contenuto via ajax</a><a id="c" class="tab disabled block {content:'cont_3'}">tab 3</a><a id="d" class="tab {content:'cont_4'}" >tab 4</a></div>
 
-	<!--content of tabset "tabset1"-->
+    <!--content of tabset "tabset1"-->
 
-	<div id="cont_3">
-		<h3>content 3</h3>
-	</div>
-	<div id="cont_4">
-		<h3>content 4</h3>
-	</div>
-	<div id="cont_1">
-		<h3>content 1</h3>
-		<p><input type="checkbox" value="alert seq." id="setSort" onclick="if ($(this).is(':checked')) $('#tabset2').setSortableMbTabset(); else $('#tabset2').clearSortableMbTabset();"/> set sortable</p>
-		<div class="tabset" id="tabset2">
-			<a id="a1" class="tab {content:'cont_1_1'}"  >tab 1</a><a id="a2" class="tab sel {content:'cont_1_2'}" >tab 2 with long text</a><a id="a3" class="tab disabled  {content:'cont_1_3'}" >tab 3</a><a id="a4" class="tab  {content:'cont_1_4'}" >tab 4</a>
-		</div>
+    <div id="cont_3">
+      <h3>content 3</h3>
+    </div>
+    <div id="cont_4">
+      <h3>content 4</h3>
+    </div>
+    <div id="cont_1">
+      <h3>content 1</h3>
+      <p><input type="checkbox" value="alert seq." id="setSort" onclick="if ($(this).is(':checked')) $('#tabset2').setSortableMbTabset(); else $('#tabset2').clearSortableMbTabset();"/> set sortable</p>
+      <div class="tabset" id="tabset2">
+        <a id="a1" class="tab {content:'cont_1_1'}"  >tab 1</a><a id="a2" class="tab sel {content:'cont_1_2'}" >tab 2 with long text</a><a id="a3" class="tab disabled  {content:'cont_1_3'}" >tab 3</a><a id="a4" class="tab  {content:'cont_1_4'}" >tab 4</a>
+      </div>
 
-		<!--content of tabset "tabset2"-->
+      <!--content of tabset "tabset2"-->
 
-		<div id="cont_1_1">
-			<h3>content 1.1</h3>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor.
-			Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam.
-			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus.
-			In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis, iaculis id, vulputate vel, velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-			Etiam interdum imperdiet pede. Maecenas rutrum viverra arcu. Nulla pellentesque. Nunc quis lacus nec nisi elementum laoreet. Sed rhoncus feugiat dui. Cras dignissim. Phasellus posuere vulputate lorem. Integer accumsan pulvinar sem. Mauris euismod egestas massa. Maecenas varius sagittis augue. Ut lacinia sollicitudin erat. Praesent est elit, imperdiet et, adipiscing nec, suscipit a, neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sollicitudin. Sed ornare pellentesque erat. Fusce turpis diam, tempus sed, commodo dignissim, blandit vel, massa. Vivamus et augue. Sed laoreet justo in augue.
-		</div>
-		<div id="cont_1_2">
-			<h3>content 1.2</h3>
-			<p><img src="images/mbTabset.jpg" alt="mbTabset"/></p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-		</div>
-		<div id="cont_1_3">
-			<h3>content 1.3</h3>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor. Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus. In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis,
-		</div>
-		<div id="cont_1_4">
-			<h3>content 1.4</h3>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor. Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus. In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis,
-		</div>
+      <div id="cont_1_1">
+        <h3>content 1.1</h3>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor.
+        Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus.
+        In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis, iaculis id, vulputate vel, velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Etiam interdum imperdiet pede. Maecenas rutrum viverra arcu. Nulla pellentesque. Nunc quis lacus nec nisi elementum laoreet. Sed rhoncus feugiat dui. Cras dignissim. Phasellus posuere vulputate lorem. Integer accumsan pulvinar sem. Mauris euismod egestas massa. Maecenas varius sagittis augue. Ut lacinia sollicitudin erat. Praesent est elit, imperdiet et, adipiscing nec, suscipit a, neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sollicitudin. Sed ornare pellentesque erat. Fusce turpis diam, tempus sed, commodo dignissim, blandit vel, massa. Vivamus et augue. Sed laoreet justo in augue.
+      </div>
+      <div id="cont_1_2">
+        <h3>content 1.2</h3>
+        <p><img src="images/mbTabset.jpg" alt="mbTabset"/></p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      </div>
+      <div id="cont_1_3">
+        <h3>content 1.3</h3>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor. Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus. In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis,
+      </div>
+      <div id="cont_1_4">
+        <h3>content 1.4</h3>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor. Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus. In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis,
+      </div>
 
-	</div>
+    </div>
+  </div>
+  <!--<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
+    Please support my work<br>with a free donation!<br><br>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
+      <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
+    </a>
+  </div>-->
 </div>
-<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
-  Please support my work<br>with a free donation!<br><br>
-  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
-    <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
-  </a>
-</div>
-
 </body>
 </html>
