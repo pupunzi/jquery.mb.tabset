@@ -35,7 +35,8 @@
     $(function(){
       $("#tabset1").buildMbTabset({
         stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
-        sortable:true
+        sortable:true,
+        select:function(o){alert(o)}
       });
       $("#tabset2").buildMbTabset({
         stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
@@ -102,7 +103,7 @@
   <button style="background:white;cursor:pointer" onclick="$('#tabset1').addMbTab({title:'addedTab', ajaxContent:'content_3.html'})">add a tab</button>
   <br/><br/>
   <div class="">
-    <div class="tabset" id="tabset1"><a id="a" class="tab {content:'cont_1'}">tab 1</a><a id="b" class="tab sel {content:'cont_2', ajaxContent:ajaxUrl,ajaxData:ajaxD}">tab 2 con contenuto via ajax</a><a id="c" class="tab disabled block {content:'cont_3'}">tab 3</a><a id="d" class="tab {content:'cont_4'}" >tab 4</a></div>
+    <div class="tabset" id="tabset1"><a id="a" class="tab {content:'cont_1', onSel:'alert(\'pippo\')'}" >tab 1</a><a id="b" class="tab sel {content:'cont_2', ajaxContent:ajaxUrl,ajaxData:ajaxD}">tab 2 con contenuto via ajax</a><a id="c" class="tab disabled block {content:'cont_3'}">tab 3</a><a id="d" class="tab {content:'cont_4'}" >tab 4</a></div>
 
     <!--content of tabset "tabset1"-->
 

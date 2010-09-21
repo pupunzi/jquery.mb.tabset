@@ -57,11 +57,13 @@
       });
     },
     setAsTab:function(opt){
+
       if ($.metadata){
         $.metadata.setType("class");
         if ($(this).metadata().content) $(this).attr("content",$(this).metadata().content);
         if ($(this).metadata().ajaxContent) $(this).attr("ajaxContent",$(this).metadata().ajaxContent);
         if ($(this).metadata().ajaxData) $(this).attr("ajaxData",$(this).metadata().ajaxData);
+        if ($(this).metadata().onSel) $(this).attr("onSel",$(this).metadata().onSel);
       }
       if ($(this).hasClass("sel")) $(this).mb_drawAjaxContent(opt.tabsetContainer);
       $(this).addClass("tab");
@@ -86,8 +88,9 @@
         });
         $("#"+actualCont).fadeOut("fast",function(){
           choosenTab.addClass("sel");
+          var clbk= choosenTab.attr("onSel");
           $("#"+choosenTab.attr("content")).addClass("tabContent");
-          $("#"+choosenTab.attr("content")).slideDown("fast");
+          $("#"+choosenTab.attr("content")).slideDown("fast", function(){eval(clbk)});
         });
       });
     },
