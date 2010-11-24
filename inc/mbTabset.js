@@ -131,6 +131,7 @@
     },
     mb_changeContent:function(contentUrl, contentData){
       $(this).attr({ajaxContent:contentUrl, ajaxData:contentData});
+      return this;
     },
     toArray:function(el){
       return $(el).sortable("toArray");
