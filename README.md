@@ -2,7 +2,7 @@
 
 __An open source jQuery component to easily set a tabbed interface on your page.__
 
-![mb.tabset](http://pupunzi.com/gitHub/mb.tabset.jpg)
+![mb.tabset](http://dl.dropbox.com/u/1976976/gitHub//mb.tabset.jpg)
 
 
 ## [go to the demo](http://pupunzi.com/#mb.components/mb.tabset/tabset.html)
