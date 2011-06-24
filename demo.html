@@ -33,23 +33,6 @@
   <link rel="stylesheet" type="text/css" href="css/mbTabset.css" title="style"  media="screen"/>
   <script type="text/javascript">
     $(function(){
-      $("#tabset1").buildMbTabset({
-        stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
-        sortable:true,
-        select:function(o){alert(o)}
-      });
-      $("#tabset2").buildMbTabset({
-        stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
-        sortable:false,
-        position:"left"
-      });
-    });
-    var ajaxUrl="content_2.html";
-    var ajaxD="pippo=1&pluto=2";
-
-  </script>
-  <script type="text/javascript">
-    $(function(){
       if (self.location.href == top.location.href){
         $("body").css({font:"normal 13px/16px 'trebuchet MS', verdana, sans-serif"});
         var logo=$("<a href='http://pupunzi.com'><img id='logo' border='0' src='http://pupunzi.com/images/logo.png' alt='mb.ideas.repository' style='display:none;'></a>");
@@ -59,6 +42,23 @@
     });
 
   </script>
+    <script type="text/javascript">
+      $(function(){
+        $("#tabset1").buildMbTabset({
+          stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
+          sortable:true,
+          select:function(o){alert(o)}
+        });
+        $("#tabset2").buildMbTabset({
+          stop:function(){if ($("#array").is(":checked")) alert($.mbTabset.mbTabsetArray)},
+          sortable:false,
+          position:"left"
+        });
+      });
+      var ajaxUrl="content_2.html";
+      var ajaxD="pippo=1&pluto=2";
+
+    </script>
   <style type="text/css">
 
     .wrapper{

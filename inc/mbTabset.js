@@ -126,6 +126,7 @@
           url: $(this).attr("ajaxContent"),
           async: true,
           data: (!$(this).attr("ajaxData"))?"":$(this).attr("ajaxData"),
+					dataType:"html",
           success: function(html){
             where.html(html);
           }
