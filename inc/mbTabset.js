@@ -1,6 +1,6 @@
 /*******************************************************************************
  jquery.mb.components
- Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+ Copyright (c) 2001-2011. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
  email: mbicocchi@open-lab.com
  site: http://pupunzi.com
 
@@ -114,6 +114,7 @@
       if (opt.sortable)
         $(this).setSortableMbTabset(opt);
     },
+	
     mb_drawAjaxContent:function(tabsetContainer){
       if ($(this).attr("ajaxContent")){
         if ($("#"+$(this).attr("content")).html()==null) {

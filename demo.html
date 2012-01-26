@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--
   ~ jquery.mb.components
-  ~ Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+  ~ Copyright (c) 2001-2011. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
 <<<<<<< HEAD
   ~ email: info@pupunzi.com
 =======
@@ -20,11 +20,7 @@
   <title>mbTabset (sortable)</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-<<<<<<< HEAD
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-=======
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
->>>>>>> © updated
   <script type="text/javascript" src="inc/ui.core.min.js"></script>
   <script type="text/javascript" src="inc/ui.sortable.min.js"></script>
   <script type="text/javascript" src="inc/jquery.metadata.js"></script>
@@ -55,6 +51,21 @@
           position:"left"
         });
       });
+
+			$.fn.removeTab=function(tabID){
+				var tab= $("#"+tabID);
+				var tabContent= $(tab.attr("content"));
+				tab.remove();
+				tabContent.remove();
+			};
+
+			$.fn.removeActualTab=function(tabSetID){
+				var tab= $(".tab.sel", $(this));
+				var tabContent= $(tab.attr("content"));
+				tab.remove();
+				tabContent.remove();
+			};
+
       var ajaxUrl="content_2.html";
       var ajaxD="pippo=1&pluto=2";
 
@@ -101,6 +112,8 @@
   <p style="background:white;"><input type="checkbox" value="alert seq." id="array"/> alert tabs sequence</p>
   <p style="background:white;"><input type="checkbox" id="setContent" onclick="if ($(this).is(':checked')) $('#b').mb_changeContent('content_3.html','a=1&b=2'); else $('#b').mb_changeContent('content_2.html','pippo=1&pluto=2');$('#b').mb_drawAjaxContent();"/> change contet of tab 2</p>
   <button style="background:white;cursor:pointer" onclick="$('#tabset1').addMbTab({title:'addedTab', ajaxContent:'content_3.html'})">add a tab</button>
+  <button style="background:white;cursor:pointer" onclick="$('#tabset1').removeTab('a')">remove tab1</button>
+  <button style="background:white;cursor:pointer" onclick="$('#tabset1').removeActualTab()">remove actual tab</button>
   <br/><br/>
   <div class="">
     <div class="tabset" id="tabset1"><a id="a" class="tab {content:'cont_1', onSel:'alert(\'pippo\')'}" >tab 1</a><a id="b" class="tab sel {content:'cont_2', ajaxContent:ajaxUrl,ajaxData:ajaxD}">tab 2 con contenuto via ajax</a><a id="c" class="tab disabled block {content:'cont_3'}">tab 3</a><a id="d" class="tab {content:'cont_4'}" >tab 4</a></div>
@@ -124,11 +137,7 @@
 
       <div id="cont_1_1">
         <h3>content 1.1</h3>
-<<<<<<< HEAD
-        Lorem ipsum zxvxvfxkcjvhdkj sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor.
-=======
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor est, dignissim non, eleifend sed, scelerisque in, odio. Nunc faucibus. Pellentesque suscipit consequat augue. Quisque quam. Sed rutrum sagittis quam. Morbi enim arcu, fringilla ac, congue eu, sagittis vitae, ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eu pede a sem consequat congue. Ut bibendum, lorem in laoreet rhoncus, lectus neque vulputate lectus, in rhoncus leo turpis vitae sapien. Donec fringilla, turpis sed luctus rutrum, ipsum libero ultrices tortor, et tristique risus nunc pharetra elit. Morbi mollis mattis metus. Nulla facilisi. Nunc nisi. Integer in mauris. Integer massa quam, ultricies eu, ullamcorper non, adipiscing ac, dolor.
->>>>>>> © updated
         Donec pretium euismod nibh. Praesent eget libero quis eros facilisis bibendum. Proin eu sem. Morbi velit. Curabitur porta justo imperdiet metus. Integer tincidunt vulputate massa. Cras nisi. Maecenas blandit sagittis libero. Phasellus justo massa, ullamcorper id, malesuada eget, bibendum at, magna. Curabitur odio. Mauris mauris. Quisque molestie enim ut quam. Aenean enim quam, viverra vel, tincidunt tristique, condimentum in, purus. Vivamus dignissim, felis eu congue tincidunt, sapien ligula sodales nisi, ac luctus elit nibh sed lectus. In tellus est, bibendum ac, auctor nec, condimentum ac, quam.
         Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida, nibh eget tincidunt consequat, eros tortor tincidunt diam, nec feugiat neque metus a turpis. Quisque ac purus. Morbi sagittis feugiat diam. Mauris libero. Vivamus condimentum ornare felis. Suspendisse potenti. Morbi et est. Praesent est ipsum, tincidunt in, suscipit ut, semper non, purus. Nulla ac felis. Quisque vehicula. Fusce euismod sapien ac tellus. Vivamus consequat ligula et nibh luctus pellentesque. Duis at sapien ac risus suscipit pulvinar. Morbi vestibulum risus vitae nibh. Proin convallis condimentum tellus. Cras nec arcu vitae felis malesuada tempor. Nullam suscipit augue a turpis. Etiam cursus consectetur metus.
         In venenatis. Aenean tristique fringilla enim. Cras et augue. Praesent a urna. Cras convallis porta odio. Donec lacinia nisi eu orci. Aliquam vestibulum convallis odio. Sed dui lectus, tincidunt quis, auctor at, auctor ut, lacus. Suspendisse potenti. Sed quis enim. Aenean in erat. Vestibulum adipiscing. Nullam aliquam. Aliquam cursus fermentum erat. Nunc blandit lacinia turpis. Quisque quam felis, varius quis, iaculis id, vulputate vel, velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
@@ -150,12 +159,6 @@
 
     </div>
   </div>
-  <!--<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
-    Please support my work<br>with a free donation!<br><br>
-    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
-      <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
-    </a>
-  </div>-->
 </div>
 </body>
 </html>
