@@ -1,13 +1,22 @@
-/*******************************************************************************
- jquery.mb.components
- Copyright (c) 2001-2011. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
- email: mbicocchi@open-lab.com
- site: http://pupunzi.com
-
- Licences: MIT, GPL
- http://www.opensource.org/licenses/mit-license.php
- http://www.gnu.org/licenses/gpl.html
- ******************************************************************************/
+/*
+ * ******************************************************************************
+ *  jquery.mb.components
+ *  file: jquery.metadata.js
+ *
+ *  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
+ *  Open lab srl, Firenze - Italy
+ *  email: matteo@open-lab.com
+ *  site: 	http://pupunzi.com
+ *  blog:	http://pupunzi.open-lab.com
+ * 	http://open-lab.com
+ *
+ *  Licences: MIT, GPL
+ *  http://www.opensource.org/licenses/mit-license.php
+ *  http://www.gnu.org/licenses/gpl.html
+ *
+ *  last modified: 25/04/13 13.06
+ *  *****************************************************************************
+ */
 
 /**
  * Sets the type of metadata to use. Metadata is encoded in JSON, and each property

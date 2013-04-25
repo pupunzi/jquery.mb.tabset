@@ -1,17 +1,26 @@
-/*******************************************************************************
- jquery.mb.components
- Copyright (c) 2001-2011. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
- email: mbicocchi@open-lab.com
- site: http://pupunzi.com
-
- Licences: MIT, GPL
- http://www.opensource.org/licenses/mit-license.php
- http://www.gnu.org/licenses/gpl.html
- ******************************************************************************/
+/*
+ * ******************************************************************************
+ *  jquery.mb.components
+ *  file: mbTabset.js
+ *
+ *  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
+ *  Open lab srl, Firenze - Italy
+ *  email: matteo@open-lab.com
+ *  site: 	http://pupunzi.com
+ *  blog:	http://pupunzi.open-lab.com
+ * 	http://open-lab.com
+ *
+ *  Licences: MIT, GPL
+ *  http://www.opensource.org/licenses/mit-license.php
+ *  http://www.gnu.org/licenses/gpl.html
+ *
+ *  last modified: 25/04/13 13.20
+ *  *****************************************************************************
+ */
 
 /*
  * Name:jquery.mb.tabset
- * Version: 1.9
+ * Version: 1.9.2
 */
 
 (function($) {
@@ -65,7 +74,8 @@
         if ($(this).metadata().ajaxData) $(this).attr("ajaxData",$(this).metadata().ajaxData);
         if ($(this).metadata().onSel) $(this).attr("onSel",$(this).metadata().onSel);
       }
-      if ($(this).hasClass("sel")) $(this).mb_drawAjaxContent(opt.tabsetContainer);
+      if ($(this).hasClass("sel"))
+	      $(this).mb_drawAjaxContent(opt.tabsetContainer);
       $(this).addClass("tab");
       $(this).addClass("mbTab");
       $(this).wrapInner("<span></span>");
@@ -132,6 +142,7 @@
             where.html(html);
           }
         });
+	      $(this).removeAttr("ajaxContent");
       }
     },
     mb_changeContent:function(contentUrl, contentData){
